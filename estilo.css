@@ -1,0 +1,404 @@
+@charset "UTF-8";
+
+/* :root - Define variáveis CSS globais para cores e valores reutilizáveis */
+:root {
+    /* --bg: Cor de fundo principal */
+    --bg: #141414;
+    /* --surface: Cor de superfície para elementos */
+    --surface: #141414;
+    /* --surface-alt: Cor alternativa para superfícies */
+    --surface-alt: #1a1a1a;
+    /* --text: Cor do texto principal */
+    --text: #ffffff;
+    /* --muted: Cor para texto secundário ou desbotado */
+    --muted: #a5a5a5;
+    /* --accent: Cor de destaque (vermelho Netflix) */
+    --accent: #e50914;
+    /* --border: Cor para bordas com transparência */
+    --border: rgba(255, 255, 255, 0.08);
+    /* --bg-body: Fundo do body */
+    --bg-body: radial-gradient(circle at top, #242424 0%, #111 55%, #090909 100%);
+}
+
+/* .light-mode :root - Define variáveis para modo claro */
+.light-mode :root {
+    /* --bg: Cor de fundo principal clara */
+    --bg: #ffffff;
+    /* --surface: Cor de superfície clara */
+    --surface: #f5f5f5;
+    /* --surface-alt: Cor alternativa para superfícies claras */
+    --surface-alt: #e0e0e0;
+    /* --text: Cor do texto principal escura */
+    --text: #000000;
+    /* --muted: Cor para texto secundário escuro */
+    --muted: #666666;
+    /* --accent: Cor de destaque (vermelho Netflix) */
+    --accent: #e50914;
+    /* --border: Cor para bordas com transparência escura */
+    --border: rgba(0, 0, 0, 0.1);
+    /* --bg-body: Fundo do body claro */
+    --bg-body: #ffffff;
+}
+
+/* * - Seletor universal para todos os elementos */
+* {
+    /* box-sizing: Define como o tamanho do elemento é calculado, incluindo padding e border */
+    box-sizing: border-box;
+}
+
+/* body - Estiliza o corpo da página */
+body {
+    /* margin: Remove margens externas do corpo */
+    margin: 0;
+    /* height: Define altura de 100% da altura da viewport */
+    height: 100vh;
+    /* font-family: Define a família de fontes para o texto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background: Fundo do body usando variável */
+    background: var(--bg-body);
+    /* color: Define a cor do texto usando variável */
+    color: var(--text);
+}
+
+/* html.light-mode body - Fundo branco no modo claro */
+html.light-mode body {
+    /* background: Branco sólido */
+    background: #ffffff;
+}
+
+/* header - Estiliza o cabeçalho */
+header {
+    /* display: Usa flexbox para layout */
+    display: flex;
+    /* align-items: Centraliza itens verticalmente */
+    align-items: center;
+    /* justify-content: Espaça itens entre si */
+    justify-content: space-between;
+    /* padding: Adiciona espaço interno */
+    padding: 1rem 1.5rem;
+    /* background: Aplica gradiente linear como fundo */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 20, 0.92) 100%);
+    /* border-bottom: Adiciona borda inferior */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* .light-mode header - Estiliza o cabeçalho no modo claro */
+.light-mode header {
+    /* background: Fundo totalmente branco */
+    background: #ffffff;
+    /* border-bottom: Borda escura */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* header h1 - Estiliza o título h1 dentro do header */
+header h1 {
+    /* margin: Remove margens */
+    margin: 0;
+    /* font-size: Define tamanho da fonte responsivo */
+    font-size: clamp(1.1rem, 3vw, 2rem);
+    /* color: Define cor do texto usando variável */
+    color: var(--accent);
+    /* letter-spacing: Aumenta o espaçamento entre letras */
+    letter-spacing: 0.15em;
+    /* text-transform: Converte texto para maiúsculo */
+    text-transform: uppercase;
+}
+
+/* #theme-toggle - Estiliza o botão de alternância de tema */
+#theme-toggle {
+    /* background: Fundo transparente */
+    background: transparent;
+    /* border: Sem borda */
+    border: none;
+    /* color: Cor do ícone usando variável */
+    color: var(--text);
+    /* font-size: Tamanho da fonte */
+    font-size: 1.5rem;
+    /* cursor: Cursor de ponteiro */
+    cursor: pointer;
+    /* padding: Espaçamento interno */
+    padding: 0.5rem;
+    /* transition: Transição suave */
+    transition: color 0.3s ease;
+}
+
+/* #theme-toggle:hover - Estiliza o botão ao passar mouse */
+#theme-toggle:hover {
+    /* color: Cor de destaque */
+    color: var(--accent);
+}
+
+/* main h2 - Estiliza h2 dentro de main */
+main h2 {
+    /* text-align: Centraliza o texto */
+    text-align: center;
+}
+
+/* main - Estiliza o elemento main */
+main {
+    /* padding: Adiciona espaço interno responsivo */
+    padding: clamp(1rem, 2.5vw, 2.5rem);
+    /* display: Usa grid para layout */
+    display: grid;
+    /* place-items: Centraliza itens no grid */
+    place-items: center;
+}
+
+/* section - Estiliza a seção */
+section {
+    /* width: Define largura máxima ou 100% */
+    width: min(800px, 100%);
+    /* padding: Adiciona espaço interno */
+    padding: 1.25rem;
+    /* background: Define fundo com transparência */
+    background: rgba(20, 20, 20, 0.72);
+    /* border: Adiciona borda */
+    border: 1px solid var(--border);
+    /* border-radius: Arredonda os cantos */
+    border-radius: 1rem;
+    /* box-shadow: Adiciona sombra */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* .light-mode section - Estiliza a seção no modo claro */
+.light-mode section {
+    /* background: Fundo totalmente branco */
+    background: #ffffff;
+    /* box-shadow: Sombra clara */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* h2 - Estiliza títulos h2 */
+h2 {
+    /* margin: Define margens */
+    margin: 0 0 1.2rem;
+    /* color: Define cor do texto */
+    color: #fdfdfd;
+    /* font-size: Define tamanho da fonte responsivo */
+    font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+}
+
+/* .profiles - Estiliza o container de perfis */
+.profiles {
+    /* display: Usa grid para layout */
+    display: grid;
+    /* grid-template-columns: Define colunas do grid responsivas */
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    /* gap: Define espaço entre itens */
+    gap: 1rem;
+    /* list-style: Remove marcadores de lista */
+    list-style: none;
+    /* padding: Remove padding padrão */
+    padding: 0;
+    /* margin: Remove margem padrão */
+    margin: 0;
+    
+}
+
+/* .profile - Estiliza cada perfil */
+.profile {
+    /* background: Define cor de fundo */
+    background: #1a1a1a;
+    /* border: Adiciona borda */
+    border: 1px solid var(--border);
+    /* border-radius: Arredonda os cantos */
+    border-radius: 0.85rem;
+    /* overflow: Esconde conteúdo que ultrapassa */
+    overflow: hidden;
+    /* transition: Adiciona transição suave */
+    transition: transform 0.23s ease, box-shadow 0.23s ease;
+    
+    
+}
+
+/* .light-mode .profile - Estiliza perfil no modo claro */
+.light-mode .profile {
+    /* background: Fundo claro */
+    background: var(--surface-alt);
+}
+
+/* .profile:hover, .profile:focus-within - Estiliza perfil ao passar mouse ou foco */
+.profile:hover,
+.profile:focus-within {
+    /* transform: Move o elemento para cima */
+    transform: translateY(-4px);
+    /* box-shadow: Adiciona sombra */
+    box-shadow: 0 10px 25px rgba(39, 39, 39, 0.5);
+}
+
+/* figure - Estiliza o elemento figure */
+figure {
+    /* margin: Remove margens */
+    margin: 0;
+    /* padding: Adiciona espaço interno */
+    padding: 1rem;
+    /* text-align: Centraliza o texto */
+    text-align: center;
+}
+
+/* img - Estiliza imagens */
+img {
+    /* width: Define largura */
+    width: 100px;
+    /* height: Define altura */
+    height: 100px;
+    /* object-fit: Ajusta imagem para cobrir sem distorcer */
+    object-fit: cover;
+    /* border-radius: Torna circular */
+    border-radius: 50%;
+    /* border: Adiciona borda */
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    /* display: Define como bloco */
+    display: block;
+    /* margin: Centraliza horizontalmente e adiciona margem inferior */
+    margin: 0 auto 0.7rem;
+}
+
+/* img:hover - Estiliza imagem ao passar mouse */
+img:hover {
+    /* border-color: Muda cor da borda */
+    border-color: rgba(255, 255, 255, 0.651);
+    /* transition: Adiciona transição */
+    transition: 1.5s;
+    /* box-shadow: Adiciona brilho */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* figcaption - Estiliza a legenda */
+figcaption {
+    /* margin: Remove margens */
+    margin: 0;
+    /* color: Define cor do texto */
+    color: var(--muted);
+    /* font-weight: Define peso da fonte */
+    font-weight: 600;
+    /* letter-spacing: Ajusta espaçamento entre letras */
+    letter-spacing: 0.02em;
+}
+
+/* figcaption:hover - Estiliza legenda ao passar mouse */
+figcaption:hover {
+    /* color: Muda cor para branco */
+    color: white;
+    /* transition: Adiciona transição */
+    transition: 1.5s;
+    /* box-shadow: Adiciona brilho sutil */
+    box-shadow: 0 0 0.5px rgba(255, 255, 255, 0.5);
+}
+
+/* @media (max-width: 420px) - Media query para telas pequenas */
+@media (max-width: 420px) {
+    /* section - Ajusta seção para mobile */
+    section {
+        /* padding: Reduz espaço interno */
+        padding: 0.9rem;
+        /* border-radius: Ajusta arredondamento */
+        border-radius: 0.8rem;
+    }
+
+    /* .profiles - Ajusta container de perfis */
+    .profiles {
+        /* gap: Reduz espaço entre itens */
+        gap: 0.75rem;
+    }
+
+    /* .profile - Ajusta perfil para mobile */
+    .profile {
+        /* border-radius: Ajusta arredondamento */
+        border-radius: 0.7rem;
+    }
+}
+
+/* Media queries para responsividade em diferentes dispositivos */
+
+/* Tablets (768px a 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    /* header - Ajusta cabeçalho para tablets */
+    header {
+        padding: 1rem 1rem;
+    }
+
+    /* header h1 - Ajusta título para tablets */
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    /* main - Ajusta main para tablets */
+    main {
+        padding: 2rem;
+    }
+
+    /* section - Ajusta seção para tablets */
+    section {
+        width: min(700px, 95%);
+        padding: 1rem;
+    }
+
+    /* .profiles - Ajusta grid de perfis para tablets */
+    .profiles {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.9rem;
+    }
+
+    /* img - Ajusta imagens para tablets */
+    img {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* Mobile (até 767px) */
+@media (max-width: 767px) {
+    /* header - Ajusta cabeçalho para mobile */
+    header {
+        padding: 0.8rem 1rem;
+    }
+
+    /* header h1 - Ajusta título para mobile */
+    header h1 {
+        font-size: 1.5rem;
+        letter-spacing: 0.1em;
+    }
+
+    /* main - Ajusta main para mobile */
+    main {
+        padding: 1rem;
+    }
+
+    /* section - Ajusta seção para mobile */
+    section {
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 0.5rem;
+    }
+
+    /* h2 - Ajusta títulos h2 para mobile */
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    /* .profiles - Ajusta grid de perfis para mobile */
+    .profiles {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    /* .profile - Ajusta perfil para mobile */
+    .profile {
+        border-radius: 0.6rem;
+    }
+
+    /* img - Ajusta imagens para mobile */
+    img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0.5rem;
+    }
+
+    /* figcaption - Ajusta legenda para mobile */
+    figcaption {
+        font-size: 0.9rem;
+    }
+}
+
